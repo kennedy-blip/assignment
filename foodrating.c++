@@ -46,3 +46,22 @@ public:
         return cuisineToFoods[cuisine].begin()->second;
     }
 };
+
+int main() {
+    vector<string> foods = {"kimchi", "miso", "sushi", "moussaka", "ramen", "bulgogi"};
+    vector<string> cuisines = {"korean", "japanese", "japanese", "greek", "japanese", "korean"};
+    vector<int> ratings = {9, 12, 8, 15, 14, 7};
+
+    FoodRatings foodRatings(foods, cuisines, ratings);
+
+    cout << foodRatings.highestRated("korean") << endl;   // kimchi
+    cout << foodRatings.highestRated("japanese") << endl; // ramen
+
+    foodRatings.changeRating("sushi", 16);
+    cout << foodRatings.highestRated("japanese") << endl; // sushi
+
+    foodRatings.changeRating("ramen", 16);
+    cout << foodRatings.highestRated("japanese") << endl; // ramen
+
+    return 0;
+}
